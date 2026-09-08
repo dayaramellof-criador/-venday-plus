@@ -1,0 +1,27 @@
+<!doctype html><html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111111"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="VENDAY+">
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/icon-192.png"><link rel="stylesheet" href="styles.css"><title>VENDAY+</title></head>
+<body><main>
+<header><div><div class="brand">VENDAY<span>+</span></div><p>Seu controle de vendas.</p></div><button id="install" class="ghost hidden">Instalar</button></header>
+<nav class="tabs"><button class="tab active" data-view="home">Início</button><button class="tab" data-view="sale">Venda</button><button class="tab" data-view="clients">Clientes</button><button class="tab" data-view="products">Produtos</button><button class="tab" data-view="cash">Caixa</button><button class="tab" data-view="reports">Relatórios</button></nav>
+
+<section id="home" class="view active"><div class="cards"><article><small>Vendido</small><b id="sold">R$ 0,00</b></article><article><small>Recebido</small><b id="received">R$ 0,00</b></article><article><small>A receber</small><b id="open">R$ 0,00</b></article><article><small>Lucro estimado</small><b id="profit">R$ 0,00</b></article></div>
+<div class="sectionTitle"><h2>Resumo</h2><button class="primary small" onclick="show('sale')">+ Nova venda</button></div><div id="homeList"></div></section>
+
+<section id="sale" class="view"><div class="panel"><h2>Nova venda</h2><form id="saleForm">
+<label>Cliente<input id="client" required maxlength="80" placeholder="Nome da cliente"></label><label>WhatsApp (opcional)<input id="phone" maxlength="20" inputmode="tel" placeholder="(18) 99999-9999"></label>
+<label>Produto / descrição<input id="product" required maxlength="120" placeholder="Ex.: Colar delicado"></label>
+<div class="row"><label>Quantidade<input id="qty" type="number" min="1" max="999" value="1" required></label><label>Valor total<input id="value" type="number" min=".01" step=".01" inputmode="decimal" required></label></div>
+<div class="row"><label>Custo total<input id="cost" type="number" min="0" step=".01" value="0" inputmode="decimal"></label><label>Pagamento<select id="payment"><option value="avista">À vista</option><option value="parcelado">Parcelado</option></select></label></div>
+<div class="row"><label>Parcelas<input id="inst" type="number" min="1" max="60" value="1"></label><label>1º vencimento<input id="due" type="date" required></label></div>
+<button class="primary" type="submit">Salvar venda</button></form></div></section>
+
+<section id="clients" class="view"><div class="sectionTitle"><h2>Clientes</h2><input id="clientSearch" class="search" placeholder="Buscar"></div><div id="clientsList"></div></section>
+
+<section id="products" class="view"><div class="panel"><h2>Novo produto</h2><form id="productForm"><label>Nome<input id="pname" required maxlength="100"></label><div class="row"><label>Preço de venda<input id="pprice" type="number" min=".01" step=".01" required></label><label>Custo<input id="pcost" type="number" min="0" step=".01" value="0"></label></div><label>Estoque<input id="pstock" type="number" min="0" max="99999" value="0"></label><button class="primary" type="submit">Cadastrar produto</button></form></div><div id="productsList"></div></section>
+
+<section id="cash" class="view"><div class="panel"><h2>Fluxo de caixa</h2><div class="row"><label>De<input id="cashFrom" type="date"></label><label>Até<input id="cashTo" type="date"></label></div><div id="cashResult" class="reportGrid"></div><h3>Entradas</h3><div id="cashEntries"></div><div class="actions"><button class="ghost" onclick="addExpense()">+ Registrar saída</button></div><div id="expenses"></div></div></section>
+
+<section id="reports" class="view"><div class="panel"><h2>Relatórios</h2><p class="muted">Escolha um período.</p><div class="row"><label>Data inicial<input id="from" type="date"></label><label>Data final<input id="to" type="date"></label></div><button class="primary" onclick="runReport()">Gerar relatório</button></div><div id="reportResult"></div></section>
+</main><script src="app.js"></script></body></html>
