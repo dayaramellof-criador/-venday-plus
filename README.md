@@ -1,2 +1,2 @@
-# venday-plus
+# -venday-plus
     Aplicativo de vendas VENDAY+
