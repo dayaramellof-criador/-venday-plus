@@ -10,7 +10,7 @@
 <div class="sectionTitle"><h2>Resumo</h2><button class="primary small" onclick="show('sale')">+ Nova venda</button></div><div id="homeList"></div></section>
 
 <section id="sale" class="view"><div class="panel"><h2>Nova venda</h2><form id="saleForm">
-<label>Cliente<input id="client" required maxlength="80" placeholder="Nome da cliente"></label><label>WhatsApp (opcional)<input id="phone" maxlength="20" inputmode="tel" placeholder="(18) 99999-9999"></label>
+<label>Cliente<input id="client" required maxlength="80" placeholder="Nome da cliente"></label><label>Data da venda<input id="date" type="date" required></label><label>WhatsApp (opcional)<input id="phone" maxlength="20" inputmode="tel" placeholder="(18) 99999-9999"></label>
 <label>Produto / descrição<input id="product" required maxlength="120" placeholder="Ex.: Colar delicado"></label>
 <div class="row"><label>Quantidade<input id="qty" type="number" min="1" max="999" value="1" required></label><label>Valor total<input id="value" type="number" min=".01" step=".01" inputmode="decimal" required></label></div>
 <div class="row"><label>Custo total<input id="cost" type="number" min="0" step=".01" value="0" inputmode="decimal"></label><label>Pagamento<select id="payment"><option value="avista">À vista</option><option value="parcelado">Parcelado</option></select></label></div>
